@@ -1,22 +1,34 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include<QMainWindow>
+#include<QDialog>
+#include<QPushButton>
+#include<QComboBox>
+#include<QLabel>
+#include<QSpinBox>
+#include<QHBoxLayout>
+#include<QVBoxLayout>
+#include<QVector>
+#include<QMessageBox>
 
-namespace Ui {
-class MainWindow;
-}
-
-class MainWindow : public QMainWindow
+class MainWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
+  MainWindow(QWidget *parent=nullptr);
+  ~MainWindow();
 private:
-    Ui::MainWindow *ui;
+   QLabel **currentMarks,*current,*edit;
+   QSpinBox **newMarks;
+   QComboBox *studentList;
+   QPushButton *ok,*exit;
+   QVector <QVector<int>> marks;
+private slots:
+   void OkPressed();
+   void BoxChanged();
+
 };
 
 #endif // MAINWINDOW_H
